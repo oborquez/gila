@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gila Vehicles</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    
+    
+    <div class="container" id="login" style="display:none;">
+        <form action="" id="loginForm">
+            <div class="row">
+                <div class="one column"> 
+                    <h1>Login</h1> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="one-half column">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" class="u-full-width" placeholder="Username">     
+                </div>
+                <div class="one-half column">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" class="u-full-width" placeholder="password">     
+                </div>
+            </div>
+            <div class="row">
+                <div class="one column">
+                    <input class="button-primary" type="submit" value="Submit">
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+
+    <div class="container" id="dash" style="display:none;">
+
+        <div class="row">
+            <div class="twelve column"> 
+                <h1>Vehicles</h1> 
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="three columns">
+                
+                <select name="category" id="category">
+                    <option value="vehicle">All</option>
+                    <option value="moto">Motocycle</option>
+                    <option value="sedan">Sedan</option>
+                </select>
+            </div>
+
+            <div class="three columns u-pull-right">
+                <button id="showForm" class="u-pull-right"> Add New </button>
+            </div>
+
+
+        </div>
+
+        <div class=row>
+            <div class="twelve column">
+
+                <table class="u-full-width" id="table-vehicle" >
+                    <thead>
+                    <tr>
+                        <th>Color</th>
+                        <th>Wheels Number</th>
+                        <th>Horsepower</th>
+                        <th>Registration</th>
+                        <th>Model</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+
+                <table class="u-full-width" id="table-moto" style="display: none;">
+                    <thead>
+                    <tr>
+                        <th>Color</th>
+                        <th>Wheels Number</th>
+                        <th>Horsepower</th>
+                        <th>Registration</th>
+                        <th>Model</th>
+                        <th>Type</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+
+                <table class="u-full-width" id="table-sedan" style="display: none;">
+                    <thead>
+                    <tr>
+                        <th>Color</th>
+                        <th>Wheels Number</th>
+                        <th>Horsepower</th>
+                        <th>Registration</th>
+                        <th>Model</th>
+                        <th>Door number</th>
+                        <th>SunRoof</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>                
+
+
+            </div>
+
+        </div>
+
+
+        
+
+    </div> <!-- End dash -->
+
+    <div class="container" id="formContainer" style="display: none;">
+        <div class="row">
+
+            <div class="twelve columns">
+                <h1>Add New</h1>
+            </div>
+
+            <form id="vehicle-form">
+             <div class="row">
+                <div class="one-third column">
+                    <label for="color">Color</label>
+                    <input type="text" name="color" id="color" placeholder="color">
+                </div>
+                <div class="one-third column">
+                    <label for="wheels_number">Wheels Number</label>
+                    <input type="number" name="wheels_number" id="wheels_number" placeholder="Wheels number">
+                </div>
+                <div class="one-third column">
+                    <label for="horsepower">Horsepower</label>
+                    <input type="number" name="horsepower" id="horsepower" placeholder="Horsepower">
+                </div>     
+             </div>   
+             <div class="row">
+
+                <div class="one-third column">
+                    <label for="registration">Registration</label>
+                    <input type="text" name="registration" id="registration" placeholder="Registration">
+                </div>
+                <div class="one-third column">
+                    <label for="model">Model</label>
+                    <input type="number" name="model" id="model" placeholder="Model">
+                </div>
+                <div class="one-third column moto-field" style="display: none;">
+                    <label for="motoType">Moto Type</label>
+                    <select name="motoType" id="motoType">
+                        <option value="1">Chooper</option>
+                        <option value="2">Sport</option>
+                        <option value="3">Scooter</option>
+                    </select>
+                </div>                
+
+             </div>
+             <div class="row">
+                <div class="one-third column sedan-field" style="display: none;">
+                    <label for="doors_number">Doors Number</label>
+                    <input type="number" name="doors_number" id="doors_number" placeholder="Doors Number">
+                </div>
+                <div class="one-third column sedan-field" style="display: none;">
+                    <label for="sunroof">SunRoof</label>
+                    <input type="checkbox" name="sunroof" id="sunroof" placeholder="SunRoof">
+                </div>
+            </div>
+            <div class="row">
+                <div class="twelve columns" id="errors" style="color:brown"></div>
+            </div>
+            <div class="row">
+                <div class="one-third columns">
+                    <input type="hidden" id="vehicle-type" name="vehicle-type">
+                    <button>Save</button>
+                </div>
+                <div class="one-third">
+                    <a id="cancelForm">Cancel</a>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
